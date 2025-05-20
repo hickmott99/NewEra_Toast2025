@@ -36,7 +36,7 @@ function App() {
                   <img
                     id="new-era-logo"
                     alt="new-era-logo"
-                    src="https://neweracolorado.org/wp-content/uploads/2022/07/NEC_Logo_Primary_Color.png"
+                    src={process.env.PUBLIC_URL + "/new_era_logo_white.png"}
                   />
                   <div className="header-1">Toast To Democracy 2025</div>
                 </div>
