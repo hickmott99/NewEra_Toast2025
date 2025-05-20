@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/NewEra_Toast2025/static/css/main.7081b433.css",
-    "main.js": "/NewEra_Toast2025/static/js/main.071f9ea8.js",
+    "main.css": "/NewEra_Toast2025/static/css/main.bd1eb79b.css",
+    "main.js": "/NewEra_Toast2025/static/js/main.4d43ba2b.js",
     "index.html": "/NewEra_Toast2025/index.html",
-    "main.7081b433.css.map": "/NewEra_Toast2025/static/css/main.7081b433.css.map",
-    "main.071f9ea8.js.map": "/NewEra_Toast2025/static/js/main.071f9ea8.js.map"
+    "main.bd1eb79b.css.map": "/NewEra_Toast2025/static/css/main.bd1eb79b.css.map",
+    "main.4d43ba2b.js.map": "/NewEra_Toast2025/static/js/main.4d43ba2b.js.map"
   },
   "entrypoints": [
-    "static/css/main.7081b433.css",
-    "static/js/main.071f9ea8.js"
+    "static/css/main.bd1eb79b.css",
+    "static/js/main.4d43ba2b.js"
   ]
 }
