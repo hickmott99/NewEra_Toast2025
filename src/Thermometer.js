@@ -78,15 +78,15 @@ function Thermometer({ goal = 0, initialProgress = 0, isMonetary = false, title 
   return (
     <div className="thermometer-container" ref={containerRef}>
       <div className="header-2">{title}</div>
-      <div className="progress-text">Goal: {formatValue(goal)}</div>
-      <div className="thermometer-track">
-        <div
-          className={`thermometer-progress thermometer-progress-${title.replace(/\s+/g, "-").toLowerCase()}`}
-          style={{ height: `${Math.max(0, percentage)}%` }}
-        ></div>
-        <div className="thermometer-bulb"></div>
-      </div>
-      <div className="thermometer-labels">
+      <div className="main-thermo-content-container">
+        <div className="progress-text">Goal: {formatValue(goal)}</div>
+        <div className="thermometer-track">
+          <div
+            className={`thermometer-progress thermometer-progress-${title.replace(/\s+/g, "-").toLowerCase()}`}
+            style={{ height: `${Math.max(0, percentage)}%` }}
+          ></div>
+          <div className="thermometer-bulb"></div>
+        </div>
         <div>Current: {formatValue(progress)}</div>
         <div className="percentage-text">{percentage}%</div>
       </div>

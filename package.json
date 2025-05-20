@@ -1,7 +1,7 @@
 {
   "name": "newera_toast2025_fundraisingthermometer2",
   "version": "0.1.0",
-  "homepage": "https://hickmott99.github.io",
+  "homepage": "https://hickmott99.github.io/NewEra_Toast2025",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
