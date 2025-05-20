@@ -1,7 +1,6 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useRef } from "react"
 
-function Thermometer({ goal = 0, initialProgress = 0, isMonetary = false, title = "" }) {
-  const [progress, setProgress] = useState(initialProgress)
+function Thermometer({ goal=0, progress=0, setProgress, isMonetary = false, title = "" }) {
   const [amount, setAmount] = useState("")
   const containerRef = useRef(null)
 
@@ -13,7 +12,7 @@ function Thermometer({ goal = 0, initialProgress = 0, isMonetary = false, title 
     e.preventDefault()
     const numericAmount = Number.parseFloat(amount)
     if (!isNaN(numericAmount)) {
-      setProgress((prev) => prev + numericAmount)
+      setProgress(numericAmount)
       setAmount("")
       createConfetti()
     }
