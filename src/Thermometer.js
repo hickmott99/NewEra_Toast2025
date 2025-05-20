@@ -1,18 +1,13 @@
-"use client"
-
 import { useState, useEffect, useRef } from "react"
 
 function Thermometer({ goal = 0, initialProgress = 0, isMonetary = false, title = "" }) {
   const [progress, setProgress] = useState(initialProgress)
   const [amount, setAmount] = useState("")
-  const [showAnimation, setShowAnimation] = useState(false)
   const containerRef = useRef(null)
 
-  const progressRatio = goal > 0 ? Math.min(progress / goal, 1) : 0
+  const progressRatio = goal > 0 ? progress / goal : 0
   const percentage = Math.floor(progressRatio * 100)
-  const formatValue = (value) => {
-    return isMonetary ? `$${value.toLocaleString()}` : `${value}`
-  }
+  const formatValue = (value) => isMonetary ? `$${value.toLocaleString()}` : `${value}`
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -20,14 +15,7 @@ function Thermometer({ goal = 0, initialProgress = 0, isMonetary = false, title 
     if (!isNaN(numericAmount)) {
       setProgress((prev) => prev + numericAmount)
       setAmount("")
-      setShowAnimation(true)
-
-      // Create confetti effect
       createConfetti()
-
-      setTimeout(() => {
-        setShowAnimation(false)
-      }, 3000)
     }
   }
 
@@ -65,29 +53,19 @@ function Thermometer({ goal = 0, initialProgress = 0, isMonetary = false, title 
     return colors[Math.floor(Math.random() * colors.length)]
   }
 
-  useEffect(() => {
-    const progressElement = document.querySelector(`.thermometer-progress-${title.replace(/\s+/g, "-").toLowerCase()}`)
-    if (progressElement) {
-      progressElement.style.height = "0%"
-      setTimeout(() => {
-        progressElement.style.height = `${Math.max(0, percentage)}%`
-      }, 300)
-    }
-  }, [])
-
   return (
     <div className="thermometer-container" ref={containerRef}>
       <div className="header-2">{title}</div>
       <div className="main-thermo-content-container">
-        <div className="progress-text">Goal: {formatValue(goal)}</div>
+        <div className="progress-text target-text">Goal: {formatValue(goal)}</div>
         <div className="thermometer-track">
           <div
             className={`thermometer-progress thermometer-progress-${title.replace(/\s+/g, "-").toLowerCase()}`}
-            style={{ height: `${Math.max(0, percentage)}%` }}
+            style={{ height: `${Math.min(100, Math.max(0, percentage))}%` }}
           ></div>
           <div className="thermometer-bulb"></div>
         </div>
-        <div>Current: {formatValue(progress)}</div>
+        <div className="progress-text">Current: {formatValue(progress)}</div>
         <div className="percentage-text">{percentage}%</div>
       </div>
       <form onSubmit={handleSubmit} className="thermo-form">

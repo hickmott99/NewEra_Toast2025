@@ -220,7 +220,7 @@ body {
   gap: 8px;
 }
 
-.progress-text::before {
+.target-text::before {
   content: "🎯";
 }
 
