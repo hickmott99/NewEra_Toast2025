@@ -1,12 +1,13 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
+"use client"
+
 import { useState } from "react"
-
 import Thermometer from "./Thermometer.js"
-import AdminPage from "./AdminPage"
-
+import AdminPage from "./AdminPage.js"
 import "./App.css"
 
 function App() {
+  const [currentPage, setCurrentPage] = useState("main")
+
   const [goals, setGoals] = useState({
     dollars: 5000,
     volunteers: 10,
@@ -24,67 +25,45 @@ function App() {
     }))
   }
 
+  const navigateTo = (page) => {
+    setCurrentPage(page)
+  }
+
   return (
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <div id="header">
-                  <Link to="/admin" style={{zIndex: 10,   textDecoration: "none"}}>
-                    <img
-                      id="new-era-logo"
-                      alt="new-era-logo"
-                      src={process.env.PUBLIC_URL + "/new_era_logo_white.png"}
-                    />
-                  </Link>
-                  <Link to="/" style={{zIndex: 10,   textDecoration: "none"}}>
-                    <div className="header-1">Toast To Democracy 2025</div>
-                  </Link>
-                </div>
-                <div id="thermometer-row">
-                  <Thermometer
-                    goal={goals.dollars}
-                    progress={progress.dollars}
-                    setProgress={(amount) => updateProgress("dollars", amount)}
-                    isMonetary={true}
-                    title="Dollars Raised"
-                  />
-                  <Thermometer
-                    goal={goals.volunteers}
-                    progress={progress.volunteers}
-                    setProgress={(amount) => updateProgress("volunteers", amount)}
-                    title="Volunteers"
-                  />
-                </div>
-              </>
-            }
+    <div className="App">
+      <div id="header">
+        <div onClick={() => navigateTo("admin")} style={{ zIndex: 10, cursor: "pointer" }}>
+          <img
+            id="new-era-logo"
+            alt="new-era-logo"
+            src={process.env.PUBLIC_URL + "/new_era_logo_white.png" || "/placeholder.svg"}
           />
-          <Route
-            path="/admin"
-            element={
-              <>
-                <div id="header">
-                  <Link to="/admin" style={{zIndex: 10,   textDecoration: "none"}}>
-                    <img
-                      id="new-era-logo"
-                      alt="new-era-logo"
-                      src={process.env.PUBLIC_URL + "/new_era_logo_white.png"}
-                    />
-                  </Link>
-                  <Link to="/" style={{zIndex: 10,   textDecoration: "none"}}>
-                    <div className="header-1">Toast To Democracy 2025</div>
-                  </Link>
-                </div>
-                <AdminPage goals={goals} setGoals={setGoals} />
-              </>
-            }
-          />
-        </Routes>
+        </div>
+        <div onClick={() => navigateTo("main")} style={{ zIndex: 10, cursor: "pointer" }} className="header-1">
+          Toast To Democracy 2025
+        </div>
       </div>
-    </Router>
+
+      {currentPage === "main" && (
+        <div id="thermometer-row">
+          <Thermometer
+            goal={goals.dollars}
+            progress={progress.dollars}
+            setProgress={(amount) => updateProgress("dollars", amount)}
+            isMonetary={true}
+            title="Dollars Raised"
+          />
+          <Thermometer
+            goal={goals.volunteers}
+            progress={progress.volunteers}
+            setProgress={(amount) => updateProgress("volunteers", amount)}
+            title="Volunteers"
+          />
+        </div>
+      )}
+
+      {currentPage === "admin" && <AdminPage goals={goals} setGoals={setGoals} />}
+    </div>
   )
 }
 
