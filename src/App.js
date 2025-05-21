@@ -24,6 +24,8 @@ function App() {
     }))
   }
 
+  console.log(goals)
+
   return (
     <Router>
       <div className="App">
@@ -33,12 +35,16 @@ function App() {
             element={
               <>
                 <div id="header">
-                  <img
-                    id="new-era-logo"
-                    alt="new-era-logo"
-                    src={process.env.PUBLIC_URL + "/new_era_logo_white.png"}
-                  />
-                  <div className="header-1">Toast To Democracy 2025</div>
+                  <Link to="/admin" style={{zIndex: 10,   textDecoration: "none"}}>
+                    <img
+                      id="new-era-logo"
+                      alt="new-era-logo"
+                      src={process.env.PUBLIC_URL + "/new_era_logo_white.png"}
+                    />
+                  </Link>
+                  <Link to="/" style={{zIndex: 10,   textDecoration: "none"}}>
+                    <div className="header-1">Toast To Democracy 2025</div>
+                  </Link>
                 </div>
                 <div id="thermometer-row">
                   <Thermometer
@@ -60,7 +66,23 @@ function App() {
           />
           <Route
             path="/admin"
-            element={<AdminPage goals={goals} setGoals={setGoals} />}
+            element={
+              <>
+                <div id="header">
+                  <Link to="/admin" style={{zIndex: 10,   textDecoration: "none"}}>
+                    <img
+                      id="new-era-logo"
+                      alt="new-era-logo"
+                      src={process.env.PUBLIC_URL + "/new_era_logo_white.png"}
+                    />
+                  </Link>
+                  <Link to="/" style={{zIndex: 10,   textDecoration: "none"}}>
+                    <div className="header-1">Toast To Democracy 2025</div>
+                  </Link>
+                </div>
+                <AdminPage goals={goals} setGoals={setGoals} />
+              </>
+            }
           />
         </Routes>
       </div>
