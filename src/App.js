@@ -49,14 +49,14 @@ function App() {
           <Thermometer
             goal={goals.dollars}
             progress={progress.dollars}
-            setProgress={(amount) => updateProgress("dollars", amount)}
+            updateProgress={(amount) => updateProgress("dollars", amount)}
             isMonetary={true}
             title="Dollars Raised"
           />
           <Thermometer
             goal={goals.volunteers}
             progress={progress.volunteers}
-            setProgress={(amount) => updateProgress("volunteers", amount)}
+            updateProgress={(amount) => updateProgress("volunteers", amount)}
             title="Volunteers"
           />
         </div>
