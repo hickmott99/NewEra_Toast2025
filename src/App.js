@@ -24,8 +24,6 @@ function App() {
     }))
   }
 
-  console.log(goals)
-
   return (
     <Router>
       <div className="App">
