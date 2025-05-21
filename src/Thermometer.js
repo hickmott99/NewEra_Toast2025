@@ -118,7 +118,9 @@ function Thermometer({ goal=0, progress=0, updateProgress, isMonetary = false, t
       "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzd4eWEydm1yNHoyOWNvdmNkcGt6eW5ja292OG1rajAxeGFuMGd6MiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/MTclfCr4tVgis/giphy.gif", // patrick and spongebob
       "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzd4eWEydm1yNHoyOWNvdmNkcGt6eW5ja292OG1rajAxeGFuMGd6MiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/1ofR3QioNy264/giphy.gif", // supa hot fire
       "https://media.giphy.com/media/Hd3GXtH7xs1CU/giphy.gif?cid=ecf05e47bolzn8uvv6hfu6nokn2ih0w8f0agctoeke3cqxtn&ep=v1_gifs_search&rid=giphy.gif&ct=g", // 80s dancer
-      "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWY5cmcyanN4Mm13ajVjMHE4MHdqb2c0cmhsaW4zMmFwMXl5MTg2MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sQjajILgG31GRqgoMa/giphy.gif" // monkey
+      "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWY5cmcyanN4Mm13ajVjMHE4MHdqb2c0cmhsaW4zMmFwMXl5MTg2MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sQjajILgG31GRqgoMa/giphy.gif", // monkey
+      "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZ2N3k4eHJ0eHVoNzc2dG9hMzNxaXZrM3gyN3liMnhvZ2F0MGIyaCZlcD12MV9naWZzX3RyZW5kaW5nJmN0PWc/YnBntKOgnUSBkV7bQH/giphy.gif", // friends
+      "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZ2N3k4eHJ0eHVoNzc2dG9hMzNxaXZrM3gyN3liMnhvZ2F0MGIyaCZlcD12MV9naWZzX3RyZW5kaW5nJmN0PWc/pynZagVcYxVUk/giphy.gif" // michael scott crying
     ];
 
     const gifs = [];
@@ -149,7 +151,7 @@ function Thermometer({ goal=0, progress=0, updateProgress, isMonetary = false, t
       const gif = document.createElement("img");
       gif.src = gifURLs[i % gifURLs.length];
       gif.style.position = "fixed";
-      gif.style.maxWidth = "300px";
+      gif.style.maxWidth = "250px";
       gif.style.zIndex = 9999;
       gif.style.pointerEvents = "none";
 
